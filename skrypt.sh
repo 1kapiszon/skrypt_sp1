@@ -32,7 +32,7 @@ cd baza;
 function dane
 {
 
-mkdir baza$licznik;
+mkdir $(pwd) baza$licznik;
 cd baza$licznik;
 
 echo "Podaj imie";
