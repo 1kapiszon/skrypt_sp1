@@ -9,12 +9,14 @@ nazwisko='ble';
 wiek='0';
 
 #sprawdzanie czy jest juz utworzony folder baza jesli nie to tworzenie
+ 
 
-if [ -d $(pwd)/baza ]
+
+if [ -d $(find * -type f -iname "skrypt.sh" )/kontakty ]
 then
 echo;
 else
-mkdir $(pwd)/baza;
+mkdir $(find * -type f -iname "skrypt.sh" )/kontakty;
 fi
 
 #jest to switch z case'ami wpisywanymi po przeczytaniu menu, uruchami odpowiednie funkcje albo np w wyswietl od razu w casie sa dwie komendy a w ostatniej musza byc dwa apostrofy
@@ -24,7 +26,7 @@ case $zmienna in
 dodaj) dane;
  licznik=licznik+1;;
 
-wyswietl) cd $(pwd)/baza;
+wyswietl) cd $(pwd)/kontakty;
 echo "Dostepne Pliki /n ";
 ls;
 read;;
@@ -37,32 +39,55 @@ esac;
 
 #funkcja pobierajaca dane do zmiennych, i wchodzaca do katalogu z baza
 
+
 function dane
 {
 
 
-cd baza;
+cd kontakty;
 
-echo "Podaj imie";
+echo "Wyswietlanie:"
+echo;
+echo "Podaj nazwe dla kontaktu:";
+read nazwa;
+echo;
+echo "Dane:";
+echo;
+echo "Podaj imie:";
 read imie;
 echo;
-echo "Podaj nazwisko";
+echo "Podaj nazwisko:";
 read nazwisko;
 echo;
-echo "Podaj wiek";
+echo "Podaj wiek:";
 read wiek;
 echo;
+echo "Podaj numer telefonu:";
+read numer;
 
-#gdy juz mamy zmienne tworzymy plik z numerem osoby i odpowiednio wspisujemy dane do szablonu dwa te >> to dopisywanie a jeden to nadpisywanie
 
-touch osoba$licznik.txt;
-echo "ID: $licznik" >> osoba$licznik.txt ;
-echo "Imie: $imie" >> osoba$licznik.txt  ;
-echo "Nazwisko: $nazwisko" >> osoba$licznik.txt ;
-echo "Wiek: $wiek" >> osoba$licznik.txt ;
+
+touch $nazwa.txt;
+echo "Imie: $imie" >> $nazwa.txt;
+echo "Nazwisko: $nazwisko" >> $nazwa.txt;
+echo "Wiek: $wiek" >> $nazwa.txt;
+echo "Numer tel:: $wiek" >> $nazwa.txt;
 
 cd ..
 }
+
+function wybierz
+{
+cd kontakty;
+echo;
+echo "Wpisz nazwe osoby ktorej dane chcesz wyswietlic"
+
+ls; 
+
+
+
+}
+
 
 
 #menu glowne
