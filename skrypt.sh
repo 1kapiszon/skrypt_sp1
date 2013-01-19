@@ -1,14 +1,14 @@
 
 
 #!/bin/bash
-baza='ble';
+baza='ble'; #zapelnianie byle jakimi wartosciami zmioennych na wszelki wypadek i w nioektorych ytrzeba np licznik
 licznik=1;
 zmienna="x";
 imie='ble';
 nazwisko='ble';
 wiek='0';
 
-
+#sprawdzanie czy jest juz utworzony folder baza jesli nie to tworzenie
 
 if [ -d $(pwd)/baza ]
 then
@@ -17,7 +17,7 @@ else
 mkdir $(pwd)/baza;
 fi
 
-
+#jest to switch z case'ami wpisywanymi po przeczytaniu menu, uruchami odpowiednie funkcje albo np w wyswietl od razu w casie sa dwie komendy a w ostatniej musza byc dwa apostrofy
 function menu_wybor
 {
 case $zmienna in
@@ -35,7 +35,7 @@ esac;
 
 }
 
-
+#funkcja pobierajaca dane do zmiennych, i wchodzaca do katalogu z baza
 
 function dane
 {
@@ -53,7 +53,9 @@ echo "Podaj wiek";
 read wiek;
 echo;
 
-touch $licznik.txt;
+#gdy juz mamy zmienne tworzymy plik z numerem osoby i odpowiednio wspisujemy dane do szablonu dwa te >> to dopisywanie a jeden to nadpisywanie
+
+touch osoba$licznik.txt;
 echo "ID: $licznik" >> osoba$licznik.txt ;
 echo "Imie: $imie" >> osoba$licznik.txt  ;
 echo "Nazwisko: $nazwisko" >> osoba$licznik.txt ;
@@ -63,7 +65,7 @@ cd ..
 }
 
 
-
+#menu glowne
 
 function menu # poczatek menu
 {
