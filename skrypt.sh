@@ -12,11 +12,11 @@ wiek='0';
  
 
 
-if [ -d $(find * -type f -iname "skrypt.sh" )/kontakty ]
+if [ -d $(pwd)/kontakty ]
 then
 echo;
 else
-mkdir $(find * -type f -iname "skrypt.sh" )/kontakty;
+mkdir $(pwd)/kontakty;
 fi
 
 #jest to switch z case'ami wpisywanymi po przeczytaniu menu, uruchami odpowiednie funkcje albo np w wyswietl od razu w casie sa dwie komendy a w ostatniej musza byc dwa apostrofy
@@ -27,9 +27,10 @@ dodaj) dane;
  licznik=licznik+1;;
 
 wyswietl) cd $(pwd)/kontakty;
-echo "Dostepne Pliki /n ";
-ls;
-read;;
+echo "Dostepne Pliki  ";
+echo;
+ls;;
+
 sortuj)echo;;
 wybierz)echo;;
 usun)echo;;
@@ -81,11 +82,13 @@ function wybierz
 cd kontakty;
 echo;
 echo "Wpisz nazwe osoby ktorej dane chcesz wyswietlic"
-
+echo;
 ls; 
-
-
-
+echo;
+read co;
+cat $co.txt
+echo;
+ 
 }
 
 
