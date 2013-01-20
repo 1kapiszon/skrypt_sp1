@@ -1,5 +1,14 @@
+#!/bin/bash
+zmienna="x";
+nazwa='ble';
+nazwa1='ble'
+imie='ble';
+nazwisko='ble';
+wiek='0';
+numer='0';
 
 
+<<<<<<< HEAD
 #!/bin/bash
 baza='ble'; #zapelnianie byle jakimi wartosciami zmioennych na wszelki wypadek i w nioektorych ytrzeba np licznik
 licznik=1;
@@ -7,10 +16,19 @@ zmienna="x";
 imie='ble';
 nazwisko='ble';
 wiek='0';
+=======
+if [ -d $(pwd)/kontakty ]
+then
+echo;
+else
+mkdir $(pwd)/kontakty;
+fi
+>>>>>>> ble
 
 #sprawdzanie czy jest juz utworzony folder baza jesli nie to tworzenie
  
 
+<<<<<<< HEAD
 
 if [ -d $(pwd)/kontakty ]
 then
@@ -20,11 +38,17 @@ mkdir $(pwd)/kontakty;
 fi
 
 #jest to switch z case'ami wpisywanymi po przeczytaniu menu, uruchami odpowiednie funkcje albo np w wyswietl od razu w casie sa dwie komendy a w ostatniej musza byc dwa apostrofy
+=======
+>>>>>>> ble
 function menu_wybor
 {
 case $zmienna in
 dodaj) dane;
+<<<<<<< HEAD
  licznik=licznik+1;;
+=======
+licznik=licznik+1;;
+>>>>>>> ble
 
 wyswietl) cd $(pwd)/kontakty;
 echo "Dostepne Pliki  ";
@@ -38,6 +62,7 @@ esac;
 
 }
 
+<<<<<<< HEAD
 #funkcja pobierajaca dane do zmiennych, i wchodzaca do katalogu z baza
 
 
@@ -47,6 +72,16 @@ function dane
 
 cd kontakty;
 
+=======
+
+
+function dane
+{
+
+
+cd kontakty;
+
+>>>>>>> ble
 echo "Wyswietlanie:"
 echo;
 echo "Podaj nazwe dla kontaktu:";
@@ -66,17 +101,24 @@ echo;
 echo "Podaj numer telefonu:";
 read numer;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ble
 touch $nazwa.txt;
 echo "Imie: $imie" >> $nazwa.txt;
 echo "Nazwisko: $nazwisko" >> $nazwa.txt;
 echo "Wiek: $wiek" >> $nazwa.txt;
+<<<<<<< HEAD
 echo "Numer tel:: $wiek" >> $nazwa.txt;
+=======
+>>>>>>> ble
 
 cd ..
 }
 
+<<<<<<< HEAD
 function wybierz
 {
 cd kontakty;
@@ -95,6 +137,11 @@ echo;
 
 #menu glowne
 
+=======
+
+
+
+>>>>>>> ble
 function menu # poczatek menu
 {
 until [ $zmienna = k ];do
@@ -115,5 +162,3 @@ menu_wybor;
 done
 }
 menu;
-
-
